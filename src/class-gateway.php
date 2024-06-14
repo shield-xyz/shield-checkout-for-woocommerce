@@ -50,7 +50,7 @@ class Shield_Gateway extends WC_Payment_Gateway
         'title'       => __('Payment Base URL', self::ID),
         'type'        => 'text',
         'description' => __('This is the base URL of the Shield Payments Page.', self::ID),
-        'default'     => __('https://woo-comm-front.vercel.app', self::ID),
+        'default'     => __('https://plugin.getshield.xyz', self::ID),
         'desc_tip'    => true,
       ),
     );

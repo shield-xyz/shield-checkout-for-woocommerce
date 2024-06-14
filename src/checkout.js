@@ -19,4 +19,5 @@ const Block_Gateway = {
     features: settings.supports,
   },
 };
+
 window.wc.wcBlocksRegistry.registerPaymentMethod(Block_Gateway);
