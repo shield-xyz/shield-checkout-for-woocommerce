@@ -60,6 +60,7 @@ class Shield_Gateway extends WC_Payment_Gateway
     $args = array(
       'headers' => array(
         'Content-Type' => 'application/json',
+        'x-api-key' => $this->get_option('api_key')
       ),
     );
 
@@ -77,24 +78,22 @@ class Shield_Gateway extends WC_Payment_Gateway
     return json_decode($body, true);
   }
 
-  public function create_payment($client_id, $price, $return_url)
+  private function create_payment($price, $return_url)
   {
     $api_base_url = $this->get_api_base_url();
     $url = "{$api_base_url}/api/payments";
     $data = array(
       'status' => 'created',
       'base_amount' => $price,
-      'return_url' => $return_url,
-      'clientId' => $client_id,
+      'return_url' => $return_url
     );
-
     return $this->api_request($url, 'POST', $data);
   }
 
-  public function get_payment_status($payment_id)
+  private function get_payment_status($payment_id)
   {
     $api_base_url = $this->get_api_base_url();
-    $url = "{$api_base_url}/api/payments?payment_id=" . $payment_id;
+    $url = "{$api_base_url}/api/payments/get/" . $payment_id;
 
     return $this->api_request($url, 'GET');
   }
@@ -105,11 +104,9 @@ class Shield_Gateway extends WC_Payment_Gateway
 
     $return_url = $this->get_return_url($order);
 
-    $client_id = $this->get_option('client_id');
-
     $api_base_url = $this->get_api_base_url();
 
-    $response = $this->create_payment($client_id, $order->get_total(), $return_url);
+    $response = $this->create_payment($order->get_total(), $return_url);
 
     if (is_wp_error($response) || $response['status'] !== 'success') {
       return array(
@@ -124,7 +121,7 @@ class Shield_Gateway extends WC_Payment_Gateway
     $order->update_meta_data('shield_payment_id', $payment_id);
     $order->save();
 
-    $payment_url = "{$api_base_url}/pay/{$payment_id}";
+    $payment_url = "https://woo-comm-front.vercel.app/pay/{$payment_id}";
 
     return array(
       'result'   => 'success',
@@ -144,17 +141,17 @@ class Shield_Gateway extends WC_Payment_Gateway
       return;
     }
 
-    $payment = $this->get_payment_status($payment_id);
+    $response = $this->get_payment_status($payment_id);
 
-    if (is_wp_error($payment) || !$payment['success']) {
+    if (is_wp_error($response) || !$response['status'] === 'success') {
       $order->update_status('on-hold');
       $order->save();
       return;
     }
 
-    $payment_status = $payment['status'];
+    $payment_status = $response['response']['status'];
 
-    if ($payment_status === 'completed') {
+    if ($payment_status === 'success') {
       $order->payment_complete();
       $order->update_status('completed');
       $order->save();
