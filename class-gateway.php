@@ -46,6 +46,13 @@ class Shield_Gateway extends WC_Payment_Gateway
         'default'     => __('https://paybackend.getshield.xyz', self::ID),
         'desc_tip'    => true,
       ),
+      'payment_base_url' => array(
+        'title'       => __('Payment Base URL', self::ID),
+        'type'        => 'text',
+        'description' => __('This is the base URL of the Shield Payments Page.', self::ID),
+        'default'     => __('https://woo-comm-front.vercel.app', self::ID),
+        'desc_tip'    => true,
+      ),
     );
   }
 
@@ -53,6 +60,12 @@ class Shield_Gateway extends WC_Payment_Gateway
   {
     $api_base_url = $this->get_option('api_base_url');
     return rtrim($api_base_url, '/');
+  }
+
+  public function get_payment_base_url()
+  {
+    $payment_base_url = $this->get_option('payment_base_url');
+    return rtrim($payment_base_url, '/');
   }
 
   private function api_request($url, $method, $data = null)
@@ -121,7 +134,7 @@ class Shield_Gateway extends WC_Payment_Gateway
     $order->update_meta_data('shield_payment_id', $payment_id);
     $order->save();
 
-    $payment_url = "https://woo-comm-front.vercel.app/pay/{$payment_id}";
+    $payment_url = "{$this->get_payment_base_url()}/pay/{$payment_id}";
 
     return array(
       'result'   => 'success',
