@@ -17,7 +17,7 @@ Install the plugin via the [Wordpress Plugin Manager](https://wordpress.org/plug
 
 **Shield Support:**
 
-- Last Cart Version Tested: Wordpress 6.5.2
+- Last Cart Version Tested: Wordpress 6.5.4
 - [GitHub Issues](https://github.com/shield-xyz/WooCommBack/issues)
 
 ## License
