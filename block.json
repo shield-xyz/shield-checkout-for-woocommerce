@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "shield-woocommerce-gateway/checkout",
+  "title": "Shield Payments",
+  "category": "widgets",
+  "script": "file:./src/checkout.js"
+}
