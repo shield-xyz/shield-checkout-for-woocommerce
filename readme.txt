@@ -5,10 +5,10 @@ Requires at least: 6.0
 Tested up to: 6.5.4
 Requires PHP: 7.4
 Stable tag: 1.0.0
-License: License: GPL-2.0+
+License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Accept crypto payment using Shield gateway for WooCommerce. Please read our [Terms of Use](https://www.getshield.xyz/terms) before using our service. It’s essential to understand the rules and guidelines that govern your interactions with our platform. 
+Accept crypto payment using Shield gateway for WooCommerce. 
 
 == Description ==
 
@@ -35,8 +35,8 @@ Accept crypto payment using Shield gateway for WooCommerce. Please read our [Ter
 
 = Plugin installation =
 
-1. Get started by signing up for a Shield account.
-2. Select **Shield Payments for WooCommerce** and click on **Install Now** and then on **Activate Plugin**
+1. Get started by signing up for a Shield account. Please read our [Terms of Use](https://www.getshield.xyz/terms) before using our service. It’s essential to understand the rules and guidelines that govern your interactions with our platform.
+2. Select **Shield Checkout for WooCommerce** and click on **Install Now** and then on **Activate Plugin**
 
 After the plugin is activated, Shield will appear in the WooCommerce > Settings > Payments section.
 

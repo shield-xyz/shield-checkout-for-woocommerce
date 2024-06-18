@@ -1,13 +1,13 @@
 <?php
 /*
- * Plugin Name: Shield Payments for WooCommerce
+ * Plugin Name: Shield Checkout for WooCommerce
  * Description: A crypto payment gateway for WooCommerce.
  * Version: 1.0.0
  * Author: Shield
  * Author URI: https://www.getshield.xyz/
  * License: GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: shield-payments
+ * Text Domain: shield-checkout-for-woocommerce
  * Domain Path: /languages
  * Tested up to: 6.5.4
  * Requires at least: 6.0

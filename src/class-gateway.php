@@ -4,6 +4,7 @@ class Shield_Gateway extends WC_Payment_Gateway
 
   const ID = 'shield_gateway';
   const TITLE = 'Shield Payments';
+  const METHOD_TITLE = 'Shield Checkout for WooCommerce';
   const METHOD_DESCRIPTION = 'Accept crypto payments through Shield Payments';
   const ICON = 'assets/shield.png';
 
@@ -11,7 +12,7 @@ class Shield_Gateway extends WC_Payment_Gateway
   {
     $this->id = self::ID;
     $this->title = __(self::TITLE, self::ID);
-    $this->method_title = __(self::TITLE, self::ID);
+    $this->method_title = __(self::METHOD_TITLE, self::ID);
     $this->method_description = __(self::METHOD_DESCRIPTION, self::ID);
     $this->icon = plugin_dir_url(__FILE__) . self::ICON;
     $this->has_fields = false;
