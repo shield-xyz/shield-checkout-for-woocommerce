@@ -13,13 +13,16 @@ This plugin requires the following:
 
 Install the plugin via the [Wordpress Plugin Manager](https://wordpress.org/plugins/).
 
-## Support
+# Support
 
 **Shield Support:**
 
 - Last Cart Version Tested: Wordpress 6.5.4
 - [GitHub Issues](https://github.com/shield-xyz/WooCommBack/issues)
 
-## License
+# License
 
 Please refer to the [LICENSE](https://github.com/shield-xyz/WooCommBack/blob/main/LICENSE) file that came with this project.
+
+[Terms of Use](www.getshield.xyz/terms)\
+[Privacy Policy](www.getshield.xyz/privacy)
