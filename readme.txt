@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Accept crypto payment using Shield gateway for WooCommerce.
+Accept crypto payment using Shield gateway for WooCommerce. Please read our [Terms of Use](https://www.getshield.xyz/terms) before using our service. It’s essential to understand the rules and guidelines that govern your interactions with our platform. 
 
 == Description ==
 
