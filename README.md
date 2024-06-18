@@ -24,5 +24,5 @@ Install the plugin via the [Wordpress Plugin Manager](https://wordpress.org/plug
 
 Please refer to the [LICENSE](https://github.com/shield-xyz/WooCommBack/blob/main/LICENSE) file that came with this project.
 
-[Terms of Use](https://www.getshield.xyz/terms)\
 [Privacy Policy](https://www.getshield.xyz/privacy)
+[Terms of Use](https://www.getshield.xyz/terms)\
