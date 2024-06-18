@@ -1,20 +1,13 @@
 <?php
 class Shield_Gateway extends WC_Payment_Gateway
 {
-
-  const ID = 'shield_gateway';
-  const TITLE = 'Shield Payments';
-  const METHOD_TITLE = 'Shield Checkout for WooCommerce';
-  const METHOD_DESCRIPTION = 'Accept crypto payments through Shield Payments';
-  const ICON = 'assets/shield.png';
-
   public function __construct()
   {
-    $this->id = self::ID;
-    $this->title = __(self::TITLE, self::ID);
-    $this->method_title = __(self::METHOD_TITLE, self::ID);
-    $this->method_description = __(self::METHOD_DESCRIPTION, self::ID);
-    $this->icon = plugin_dir_url(__FILE__) . self::ICON;
+    $this->id = 'shield_gateway';
+    $this->title = __('Shield Payments', 'shield_gateway');
+    $this->method_title = __('Shield Checkout for WooCommerce', 'shield_gateway');
+    $this->method_description = __('Accept crypto payments through Shield Payments', 'shield_gateway');
+    $this->icon = plugin_dir_url(__FILE__) . 'assets/shield.png';
     $this->has_fields = false;
 
     $this->init_form_fields();
@@ -28,30 +21,30 @@ class Shield_Gateway extends WC_Payment_Gateway
   {
     $this->form_fields = array(
       'enabled' => array(
-        'title'   => __('Enable/Disable', self::ID),
+        'title'   => __('Enable/Disable', 'shield_gateway'),
         'type'    => 'checkbox',
-        'label'   => __('Enable Shield Payments', self::ID),
+        'label'   => __('Enable Shield Payments', 'shield_gateway'),
         'default' => 'yes',
       ),
       'api_key' => array(
-        'title'       => __('Shield API KEY', self::ID),
+        'title'       => __('Shield API KEY', 'shield_gateway'),
         'type'        => 'text',
-        'description' => __('You can get your API KEY from your Shield Payments account.', self::ID),
+        'description' => __('You can get your API KEY from your Shield Payments account.', 'shield_gateway'),
         'default'     => '',
         'desc_tip'    => true,
       ),
       'api_base_url' => array(
-        'title'       => __('API Base URL', self::ID),
+        'title'       => __('API Base URL', 'shield_gateway'),
         'type'        => 'text',
-        'description' => __('This is the base URL of the Shield Payments API.', self::ID),
-        'default'     => __('https://paybackend.getshield.xyz', self::ID),
+        'description' => __('This is the base URL of the Shield Payments API.', 'shield_gateway'),
+        'default'     => __('https://paybackend.getshield.xyz', 'shield_gateway'),
         'desc_tip'    => true,
       ),
       'payment_base_url' => array(
-        'title'       => __('Payment Base URL', self::ID),
+        'title'       => __('Payment Base URL', 'shield_gateway'),
         'type'        => 'text',
-        'description' => __('This is the base URL of the Shield Payments Page.', self::ID),
-        'default'     => __('https://plugin.getshield.xyz', self::ID),
+        'description' => __('This is the base URL of the Shield Payments Page.', 'shield_gateway'),
+        'default'     => __('https://plugin.getshield.xyz', 'shield_gateway'),
         'desc_tip'    => true,
       ),
     );
@@ -79,7 +72,7 @@ class Shield_Gateway extends WC_Payment_Gateway
     );
 
     if ($data !== null) {
-      $args['body'] = json_encode($data);
+      $args['body'] = wp_json_encode($data);
     }
 
     $response = ($method === 'POST') ? wp_remote_post($url, $args) : wp_remote_get($url, $args);
