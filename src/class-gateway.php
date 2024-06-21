@@ -7,7 +7,7 @@ class Shield_Gateway extends WC_Payment_Gateway
     $this->title = __('Shield Payments', 'shield_gateway');
     $this->method_title = __('Shield Checkout for WooCommerce', 'shield_gateway');
     $this->method_description = __('Accept crypto payments through Shield Payments', 'shield_gateway');
-    $this->icon = plugin_dir_url(__FILE__) . 'assets/shield.png';
+    $this->icon = plugin_dir_url(__FILE__) . '../assets/shield.png';
     $this->has_fields = false;
 
     $this->init_form_fields();
