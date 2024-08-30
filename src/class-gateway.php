@@ -140,6 +140,10 @@ class Shield_Gateway extends WC_Payment_Gateway
   {
     $order = wc_get_order($order_id);
 
+    if ($order->get_payment_method() !== $this->id) {
+      return; // Exit if the payment method is not Shield Gateway
+  }
+
     $payment_id = $order->get_meta('shield_payment_id', true);
 
     if (!$payment_id) {
