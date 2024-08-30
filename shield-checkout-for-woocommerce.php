@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Shield Checkout for WooCommerce
  * Description: A crypto payment gateway for WooCommerce.
- * Version: 1.0.1
+ * Version: 1.0.0
  * Author: Shield
  * Author URI: https://www.getshield.xyz/
  * License: GPL-2.0+
