@@ -32,7 +32,7 @@ final class Shield_Gateway_Blocks extends AbstractPaymentMethodType
                 'wp-html-entities',
                 'wp-i18n',
             ],
-            '1.0.1',
+            '2.0.0',
             true
         );
         if (function_exists('wp_set_script_translations')) {
