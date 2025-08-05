@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Shield Checkout for WooCommerce
  * Description: A crypto payment gateway for WooCommerce.
- * Version: 1.0.1
+ * Version: 2.0.0
  * Author: Shield
  * Author URI: https://www.getshield.xyz/
  * License: GPL-2.0+
@@ -12,7 +12,7 @@
  * Tested up to: 6.5.4
  * Requires at least: 6.0
  * Requires PHP: 7.4
-*/
+ */
 
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
 use Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry;

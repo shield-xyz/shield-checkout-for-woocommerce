@@ -4,7 +4,7 @@ Tags: payments, shield, cryptocurrency, payment gateway
 Requires at least: 6.0
 Tested up to: 6.5.4
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,5 +50,5 @@ After you have installed the BitPay plugin, the configuration steps are:
 
 == Changelog ==
 
-= v1.0.1 =
+= v2.0.0 =
 * Initial release
