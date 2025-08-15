@@ -94,6 +94,18 @@ class Shield_Gateway extends WC_Payment_Gateway
 
   private function api_request($url, $method, $data = null)
   {
+    // Log the API request details
+    $parsed_url = parse_url($url);
+    $path = $parsed_url['path'] ?? '';
+    $query = isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '';
+    $full_path = $path . $query;
+    
+    $this->log_message("API Request: {$method} {$url}", 'info');
+    $this->log_message("API Request Path: {$full_path}", 'info');
+    if ($data !== null) {
+      $this->log_message("API Request Data: " . wp_json_encode($data), 'info');
+    }
+
     $args = array(
       'headers' => array(
         'Content-Type' => 'application/json',
@@ -110,18 +122,25 @@ class Shield_Gateway extends WC_Payment_Gateway
 
     // Network or transport error.
     if (is_wp_error($response)) {
+      $this->log_message("API Request Failed: " . $response->get_error_message(), 'error');
       return $response;
     }
 
     $status_code = wp_remote_retrieve_response_code($response);
+    $this->log_message("API Response Status: {$status_code}", 'info');
+    
     if ($status_code < 200 || $status_code >= 300) {
+      $this->log_message("API HTTP Error: {$status_code}", 'error');
       return new WP_Error('shield_api_http_error', 'Shield API HTTP error: ' . $status_code);
     }
 
     $body = wp_remote_retrieve_body($response);
+    $this->log_message("API Response Body: " . $body, 'info');
+    
     $decoded = json_decode($body, true);
 
     if (null === $decoded && json_last_error() !== JSON_ERROR_NONE) {
+      $this->log_message("API JSON Decode Error: " . json_last_error_msg(), 'error');
       return new WP_Error('shield_api_json_error', 'Invalid JSON received from Shield API');
     }
 
